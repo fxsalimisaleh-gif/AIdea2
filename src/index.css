@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ریست پایه و تنظیمات کلی تایپوگرافی */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #080b14;
+  font-feature-settings: "cv11", "ss01";
+}
+
+html[dir="rtl"] body {
+  font-family: "Vazirmatn", sans-serif;
+}
+
+html[dir="ltr"] body {
+  font-family: "Inter", sans-serif;
+}
+
+/* حالت focus قابل مشاهده برای دسترسی‌پذیری کیبورد */
+:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: #7c5cff;
+  color: #f8fafc;
+}
+
+/* اسکرول‌بار ظریف و هماهنگ با تم تیره */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #080b14;
+}
+::-webkit-scrollbar-thumb {
+  background: #1b2333;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #263049;
+}
+
+/* احترام به تنظیم کاهش انیمیشن کاربر */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer components {
+  /* متن دو رنگ برند برای هایلایت‌های کلیدی */
+  .text-gradient {
+    background-image: linear-gradient(135deg, #7c5cff 0%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .container-aidea {
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10;
+  }
+
+  .section-y {
+    @apply py-20 sm:py-28;
+  }
+}
